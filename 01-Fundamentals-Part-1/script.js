@@ -20,25 +20,6 @@ console.log($doller, "Doller = India Rupee", _Rupee);
 */
 
 /*
-//Assignment 1
-// LECTURE: Values and Variables
-// 1. Declare variables called 'country', 'continent' and 'population' and
-// assign their values according to your own country (population in millions)
-// 2. Log their values to the console
-
-let country = "INDIA";
-let continent = "Asia";
-let population = 1431127090;
-console.log(
-  country,
-  "Country\n",
-  continent,
-  "Continent\n",
-  population,
-  "Population of India"
-);
-*/
-
 // V3 Datatypes
 
 let JavaScriptIsFun = true;
@@ -60,3 +41,4 @@ year = 1997;
 console.log(year);
 
 console.log(typeof null); //type of null is Object
+*/
