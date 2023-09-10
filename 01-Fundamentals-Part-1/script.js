@@ -42,3 +42,17 @@ console.log(year);
 
 console.log(typeof null); //type of null is Object
 */
+
+// V4 Let Const Var
+
+//var and let create variables that can be reassigned another value.
+// const creates "constant" variables that cannot be reassigned another value.
+// developers shouldn't use var anymore. They should use let or const instead.
+// if you're not going to change the value of a variable, it is good practice to use const.
+
+const BirthYear = 1997;
+let Age = 26;
+var Company = "ABC";
+jsCourseBy = "Jonas";
+
+console.log(BirthYear, Age, Company, jsCourseBy);
