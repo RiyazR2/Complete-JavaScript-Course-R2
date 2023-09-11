@@ -1,3 +1,5 @@
+/*
+
 //Assignment 1
 // LECTURE: Values and Variables
 // 1. Declare variables called 'country', 'continent' and 'population' and
@@ -95,3 +97,5 @@ console.log(
 let Description =
   "'India is in Asia, and its more than Half of Population people speak Hindi'";
 console.log(Description);
+
+*/
