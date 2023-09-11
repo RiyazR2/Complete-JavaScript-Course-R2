@@ -43,6 +43,7 @@ console.log(year);
 console.log(typeof null); //type of null is Object
 */
 
+/*
 // V4 Let Const Var
 
 //var and let create variables that can be reassigned another value.
@@ -56,3 +57,33 @@ var Company = "ABC";
 jsCourseBy = "Jonas";
 
 console.log(BirthYear, Age, Company, jsCourseBy);
+*/
+
+// V5
+// Math Operators
+const now = 2040;
+let ageRiya = now - 1997;
+let ageBande = now - 1999;
+console.log(ageRiya, ageBande);
+
+console.log(ageRiya * 2, ageBande / 4, 2 ** 3);
+// 2**3 Means 2 to the power 3 = 2*2*2
+
+const firstName = "Riyaz_Ahmed";
+const lastName = "Pathan";
+console.log(firstName + lastName);
+console.log(firstName + " " + lastName);
+
+//Assignment Operator
+let x = 10 + 5;
+x += 5; //x = x + 5
+x--;
+x++;
+console.log(x);
+
+// Comparison Operators <, >, <=, >=;
+console.log(ageRiya > ageBande);
+console.log(ageRiya < ageBande);
+console.log(ageBande <= 41);
+
+console.log(now - 1997 > now - 1999);
