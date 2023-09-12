@@ -204,6 +204,7 @@ Val	Operator	Description	Example
 
 */
 
+/*
 // V7 String Literal
 const firstName = "Riyaz";
 let Hobbie = "Cricket";
@@ -231,3 +232,19 @@ console.log(newRiyaz);
 console.log(`Multi
 Line
 String`);
+
+*/
+
+/*
+// V8 Taking Decision : if/else statements
+
+const sarahAge = 14;
+if (sarahAge >= 18) {
+  console.log(`Sarah is Eligible for Driving License 🚗`);
+} else {
+  const yearLeft = 18 - sarahAge;
+  console.log(
+    `Sarah is too younger for Driving License she need to wait for atleast ${yearLeft} year`
+  );
+}
+*/
