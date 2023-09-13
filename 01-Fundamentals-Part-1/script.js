@@ -291,6 +291,8 @@ they are not exactly false initially but they will become when converted to a bo
 Everything else are our so-called truthy values. So, Values that will be converted to true for Example
 any number that is not zero or any string that is not an empty string will be converted to true when we attempt to convert them to a boolean
 */
+
+/*
 console.log(Boolean(0));
 console.log(Boolean(undefined));
 console.log(Boolean("Jonas"));
@@ -309,4 +311,47 @@ if (height) {
   console.log("Height is Defined !");
 } else {
   console.log("Height is Undefined");
+}
+*/
+
+/*
+V11 Equaltiy Operators , Prompt , Different Operator(=! & ==!) and else if 
+== Loose Equality Operator
+=== Strict Equality Operator
+*/
+
+let age = "26";
+
+if (age == 26) console.log("Age is 26 (Loose Equality)");
+if (age === 26) console.log("Age is 26 (Strict Equality)");
+
+// let favourite = prompt("What's Your Favourite Number?");
+// console.log(favourite, "is a ", typeof favourite);
+
+// if (favourite == 30) {
+//   console.log(
+//     "Cool! 30 is an Amazing Number!\n......... Checked by Loose Equality Operator"
+//   );
+// }
+
+favourite = Number(prompt("What's Your Favourite Number?"));
+console.log(favourite, "is a ", typeof favourite);
+if (favourite === 30) {
+  console.log(
+    "Cool! 30 is an Amazing Number!\n......... Checked by Strict Equality Operator"
+  );
+} else if (favourite === 20) {
+  console.log(
+    "Cool! 20 is also an Amazing Number!\n......... Checked by Strict Equality Operator"
+  );
+} else if (favourite === 10) {
+  console.log(
+    "Cool! 10 is also an Amazing Number!\n......... Checked by Strict Equality Operator"
+  );
+} else {
+  console.log("Number is Not 10, 20 or 30");
+}
+
+if (favourite !== 30) {
+  console.log("But Why not 30!");
 }
