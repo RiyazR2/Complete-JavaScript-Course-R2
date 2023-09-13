@@ -248,3 +248,65 @@ if (sarahAge >= 18) {
   );
 }
 */
+
+/*
+// V9 Type Conversion and Type Coercion
+// this conversion cannot be apply original varible
+// only can to that expresion only
+const inputYear = "1991";
+console.log(inputYear);
+console.log(Number(inputYear)); //string is converted into number
+const name = "Jonas";
+console.log(Number(name)); //:- O/P NaN(Not a Number) but NaN its Actully means 'Invalid Number'
+
+let strNum = 23;
+console.log(strNum);
+console.log(String(strNum)); //Number is converted into String
+console.log(strNum + 7);
+
+//Type Coercion
+
+//  23 is a number so we have different types here, right?
+//  we have a string, a number and another string
+//  so in JavaScript, the plus operator that we used here triggers a coercion to strings
+//  and 'So whenever there is an operation between a string and number, the NUMBER WILL BE CONVERTED TO A STRING'
+
+console.log("I am " + 26 + " years old");
+console.log("I am " + "26" + " years old");
+console.log("37" - "10" - "7"); //20
+console.log(("2" * "5") / 2); // 5
+
+//Game => Gues the Output
+let n = "1" + 1; // 11
+n = n - 1; // 11 - 1
+console.log(n); // 10
+*/
+
+/*
+V10 Truth and Falsy Values
+
+5 falsy values:- 0, undefined, null, NaN, ""(emptyString).
+All of these Five Values will be converted to false when we attempt to convert them to a boolean.
+they are not exactly false initially but they will become when converted to a boolean. so, that's the definition of falsy values.
+Everything else are our so-called truthy values. So, Values that will be converted to true for Example
+any number that is not zero or any string that is not an empty string will be converted to true when we attempt to convert them to a boolean
+*/
+console.log(Boolean(0));
+console.log(Boolean(undefined));
+console.log(Boolean("Jonas"));
+console.log(Boolean({}));
+console.log(Boolean(""));
+
+const money = 0; //100
+if (money) {
+  console.log("Don't Spend it all !");
+} else {
+  console.log("You Should get a Job!");
+}
+
+let height; //undefined variable, we know undefined is also a falsy value
+if (height) {
+  console.log("Height is Defined !");
+} else {
+  console.log("Height is Undefined");
+}
