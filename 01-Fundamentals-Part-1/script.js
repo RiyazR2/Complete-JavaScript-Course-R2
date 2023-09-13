@@ -315,10 +315,11 @@ if (height) {
 */
 
 /*
-V11 Equaltiy Operators , Prompt , Different Operator(=! & ==!) and else if 
-== Loose Equality Operator
-=== Strict Equality Operator
-*/
+
+// V11 Equaltiy Operators , Prompt , Different Operator(=! & ==!) and else if 
+// == Loose Equality Operator
+// === Strict Equality Operator
+
 
 let age = "26";
 
@@ -354,4 +355,38 @@ if (favourite === 30) {
 
 if (favourite !== 30) {
   console.log("But Why not 30!");
+}
+
+*/
+
+// V12 Logical Operator
+const hasDrivingLicense = true; // A
+const hasGoodVision = true; // B
+const hasCar = false; // C
+
+//AND
+console.log("AND operations");
+console.log(hasDrivingLicense && hasGoodVision);
+console.log(hasCar && hasGoodVision);
+
+//OR
+console.log("OR Operations");
+console.log(hasDrivingLicense || hasGoodVision);
+console.log(hasCar || hasGoodVision);
+
+//NOT
+console.log("NOT Operation");
+console.log(!hasDrivingLicense);
+
+if (!hasDrivingLicense && hasGoodVision) {
+  console.log("Sarah is able to drive !");
+} else {
+  console.log("Someone else should drive!");
+}
+
+const isTired = false;
+if (hasDrivingLicense && hasGoodVision && !isTired) {
+  console.log("Sarah is able to drive !");
+} else {
+  console.log("Someone else should drive!");
 }
