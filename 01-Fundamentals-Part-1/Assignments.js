@@ -6,7 +6,7 @@
 
 let country = "INDIA";
 let continent = "Asia";
-let PopulationINDIA = 1431127090;
+let PopulationINDIA = 1400;
 console.log(
   country,
   "Country\n",
@@ -26,7 +26,7 @@ console.log(
 
 let isIsland = false;
 let language;
-PopulationINDIA = 1428627663;
+PopulationINDIA = 1400;
 
 console.log(
   "Country = ",
@@ -80,7 +80,7 @@ console.log(
   " After Increase the population of country by 1"
 );
 
-let Finland = 6000000;
+let Finland = 6;
 console.log(
   "Population of Finland ",
   Finland,
@@ -89,9 +89,9 @@ console.log(
 );
 console.log(
   "Average Population of Country is 33 Millions",
-  3300000,
+  33,
   "\n India have less people than the average country?",
-  PopulationINDIA < 3300000
+  PopulationINDIA < 33
 );
 
 let Description =
@@ -122,10 +122,10 @@ console.log(Description);
 */
 
 //this temporary data for task 2 of this assignment
-// PopulationINDIA = 1300000;
-// PopulationINDIA = 13000000;
+// PopulationINDIA = 13;
+// PopulationINDIA = 130;
 
-if (PopulationINDIA > 3300000) {
+if (PopulationINDIA > 33) {
   console.log(`${country} population is above average`);
 } else {
   console.log(`${country} population is 22 million below average`);
@@ -169,15 +169,45 @@ situation
 */
 
 //Afghanistan, Pakistan, China, Bhutan, Nepal, Myanmar, Bangladesh, Maldives and Sri Lanka.(total 9)
-let numNeighbours = prompt(
-  "How many neighbour countries does your country have?"
-);
-if (numNeighbours == 1) {
-  console.log("Only 1 border!");
-} else if (numNeighbours >= 1) {
-  console.log("More than 1 border");
-} else {
-  console.log("No borders");
-}
+
+// let numNeighbours = prompt(
+//   "How many neighbour countries does your country have?"
+// );
+// if (numNeighbours == 1) {
+//   console.log("Only 1 border!");
+// } else if (numNeighbours >= 1) {
+//   console.log("More than 1 border");
+// } else {
+//   console.log("No borders");
+// }
+
 //when I use without Number conversion and ===(strict equality) its shows for data 1 More than 1 border then
 //After change I Use Number conversion and ===(strict equality) its shows for data 1 only 1 border
+
+/*
+Assignment 9 LECTURE: Logical Operators
+1. Comment out the previous code so the prompt doesn't get in the way
+2. Let's say Sarah is looking for a new country to live in. She wants to live in a
+country that speaks english, has less than 50 million people and is not an
+island.
+3. Write an if statement to help Sarah figure out if your country is right for her.
+You will need to write a condition that accounts for all of Sarah's criteria. Take
+your time with this, and check part of the solution if necessary.
+4. If yours is the right country, log a string like this: 'You should live in Portugal :)'. If
+not, log 'Portugal does not meet your criteria :('
+5. Probably your country does not meet all the criteria. So go back and temporarily
+change some variables in order to make the condition true (unless you live in
+Canada :D)
+*/
+
+// if (language === "English" && PopulationINDIA < 50 && !isIsland) {
+//   console.log(`'You should live in ${country} :)'`);
+// } else {
+//   console.log(`'${country} does not meet your criteria :('`);
+// }
+
+if (language === "Hindi" && PopulationINDIA <= 1400 && !isIsland) {
+  console.log(`'You should live in ${country} :)'`);
+} else {
+  console.log(`'${country} does not meet your criteria :('`);
+}
