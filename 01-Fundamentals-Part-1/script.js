@@ -359,6 +359,7 @@ if (favourite !== 30) {
 
 */
 
+/*
 // V12 Logical Operator
 const hasDrivingLicense = true; // A
 const hasGoodVision = true; // B
@@ -390,3 +391,73 @@ if (hasDrivingLicense && hasGoodVision && !isTired) {
 } else {
   console.log("Someone else should drive!");
 }
+
+*/
+
+/*
+V 13 Switch case Statments
+its compare with strict Equality ===
+*/
+
+/*
+let day = "monday"; // 'day === monday'
+switch (day) {
+  case "monday":
+    console.log("1st Day working");
+    break;
+  case "tuesday":
+    console.log("Practicing JavaScript exercises");
+    break;
+  case "wednesday":
+    console.log("Weekly Meeting with Dinesh SNP Mphasis");
+    break;
+  case "thursday":
+  case "friday":
+    console.log("Remaining JavaScript Course Content and Assignments");
+    break;
+  case "saturday":
+    console.log("Home work like groceries and Maintaining");
+    break;
+  case "sunday":
+    console.log("Enjoy and Sleeping 😅");
+    break;
+  default:
+    console.log("not a Valid Day");
+}
+
+//Same code Using if else if statements
+if (day === "monday") {
+  console.log("1st Day working");
+} else if (day === "tuesday") {
+  console.log("Practicing JavaScript exercises");
+} else if (day === "wednesday") {
+  console.log("Weekly Meeting with Dinesh SNP Mphasis");
+} else if (day === "thursday" || day === "friday") {
+  console.log("Remaining JavaScript Course Content and Assignments");
+} else if (day === "saturday") {
+  console.log("Home work like groceries and Maintaining");
+} else if (day === "sunday") {
+  console.log("Enjoy and Sleeping 😅");
+} else {
+  console.log("not a Valid Day");
+}
+*/
+
+/*
+V 14 Statments and Expressions
+An Expression is a Piece of Code that produces a value
+*/
+
+/*
+V 15 Conditional Operator
+its has 3 parts:- 1 is Condition, 2 is if part , 3 is else part
+ternary operator is an expression that we can use it in template literal
+*/
+/*
+let age = 18;
+age >= 18
+  ? console.log("Able to Voter Id Card")
+  : console.log("wait atleat", 18 - age, "Year");
+
+console.log(`${age >= 18 ? console.log("Able to Voter Id Card") : console.log("wait atleat", 18 - age, "Year")}`)
+*/
