@@ -449,7 +449,7 @@ An Expression is a Piece of Code that produces a value
 */
 
 /*
-V 15 Conditional Operator
+V 15 Conditional Operator (Ternary Operator)
 its has 3 parts:- 1 is Condition, 2 is if part , 3 is else part
 ternary operator is an expression that we can use it in template literal
 */
@@ -461,3 +461,10 @@ age >= 18
 
 console.log(`${age >= 18 ? console.log("Able to Voter Id Card") : console.log("wait atleat", 18 - age, "Year")}`)
 */
+
+
+
+
+
+
+/*--------------------------------- End Of JavaScript Fundamental Part 1 ------------------------------------  */
