@@ -1,4 +1,5 @@
 /*
+Exercise 1
 Coding Challenge #1
 Mark and John are trying to compare their BMI (Body Mass Index), which is
 calculated using the formula:
@@ -40,6 +41,7 @@ let markHigherBMI = Mark_BMI > John_BMI;
 console.log(markHigherBMI);
 
 /*
+Exercise 2
 Coding Challenge #2
 Use the BMI example from Challenge #1, and the code you already wrote, and
 improve it.
@@ -61,7 +63,7 @@ if (Mark_BMI > John_BMI) {
 }
 
 /*
-
+Exercise 3
 Coding Challenge #3
 There are two gymnastics teams, Dolphins and Koalas. They compete against each
 other 3 times. The winner with the highest average score wins a trophy!
@@ -114,6 +116,7 @@ Both team Score is less than 100, So no one can won Trophy :( `);
 }
 
 /*
+Exercise 4
 Coding Challenge #4
 Steven wants to build a very simple tip calculator for whenever he goes eating in a
 restaurant. In his country, it's usual to tip 15% if the bill value is between 50 and
