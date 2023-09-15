@@ -24,13 +24,13 @@ if (hasDriversLicense) console.log('I can drive :)')
 // const interface = 87;
 
 //Unexpected token 'if'
-// const if = 'you'; 
+// const if = 'you';
 */
 
 /* V2 Functions
 
 */
-
+/*
 function logger() {
     console.log('My Name is Pathan')
 }
@@ -48,3 +48,26 @@ function fruitProcessor(apples, mango) {
 const juice = fruitProcessor(2, 4);
 console.log(juice)
 console.log(fruitProcessor(1, 3))
+*/
+
+// V3 Function Declaration and Expression
+
+//Function Declaration
+// We can call function before declaration
+
+// const age1 = calAge(1997)
+function calAge(birthYear) {
+    return 2023 - birthYear;
+}
+
+const age1 = calAge(1997)
+console.log(age1)
+
+//Function Expression
+// we cannot call function before Function Expression
+// const age2 = calAge2(2000)//Error: cannot access 'calAge2' before initialization
+const calAge2 = function (birthYear) { //Anonymous Function
+    return 2023 - birthYear;
+}
+// const age2 = calAge2(2000)
+console.log(age1, age2)
