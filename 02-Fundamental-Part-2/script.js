@@ -50,6 +50,7 @@ console.log(juice)
 console.log(fruitProcessor(1, 3))
 */
 
+/*
 // V3 Function Declaration and Expression
 
 //Function Declaration
@@ -66,8 +67,60 @@ console.log(age1)
 //Function Expression
 // we cannot call function before Function Expression
 // const age2 = calAge2(2000)//Error: cannot access 'calAge2' before initialization
+
 const calAge2 = function (birthYear) { //Anonymous Function
     return 2023 - birthYear;
 }
-// const age2 = calAge2(2000)
+const age2 = calAge2(2000)
 console.log(age1, age2)
+
+
+// V4 Arrow Function
+
+// this is same function as a above function expression and its only get single line of code
+const calAge3 = birthYear => 2023 - birthYear;
+const age3 = calAge3(1995);
+console.log(age3)
+
+//Another example
+
+const yearUntilRetirement = (birthYear, name) => {
+    let age = 2023 - birthYear;
+    let retirement = 60 - age;
+    return `${name} has ${retirement} years remaining until Retirenment`;
+}
+
+const age4 = yearUntilRetirement(1997, 'Riyaz')
+console.log(age4)
+
+*/
+
+// V5 Function Calling Function
+
+
+/*
+function fruitProcessor(apples, mango) {
+    console.log(apples, mango)
+    const makingJuice = `juice with ${apples} apples and ${mango} mangoes`
+    return makingJuice;
+}
+
+const juice = fruitProcessor(2, 4);
+console.log(juice)
+console.log(fruitProcessor(1, 3))
+*/
+
+const cutPieces = function (fruit) {
+    return fruit * 4;
+}
+
+const fruitProcessor2 = function (apples, oranges) {
+    const applePieces = cutPieces(apples)
+    const orangePieces = cutPieces(oranges)
+    console.log(apples, oranges)
+    const makingJuice2 = `Juice with ${applePieces} Pieces of Apples and ${orangePieces} Pieces of Oranges`
+    return makingJuice2;
+}
+
+const juice2 = fruitProcessor2(2, 3)
+console.log(juice2)
