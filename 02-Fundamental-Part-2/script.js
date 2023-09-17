@@ -110,6 +110,7 @@ console.log(juice)
 console.log(fruitProcessor(1, 3))
 */
 
+/*
 const cutPieces = function (fruit) {
     return fruit * 4;
 }
@@ -124,3 +125,78 @@ const fruitProcessor2 = function (apples, oranges) {
 
 const juice2 = fruitProcessor2(2, 3)
 console.log(juice2)
+*/
+
+/*
+// V5 Arrays
+
+let f1 = 'Michael'
+let f2 = 'John'
+let f3 = 'Steven'
+
+let friends = ['Michael', 'John', 'Steven', 'Peter', 'Rock'];
+console.log(f1, f2, f3)
+console.log(friends)
+console.log(friends[0])
+console.log(friends[1])
+console.log(friends.length) // Exact length of an Array
+console.log(friends[friends.length - 1]) // Accessing last element in an array
+friends[friends.length - 1] = 'Rahul' // Replacing friend Rock to Rahul
+console.log(friends)
+
+const lastName = 'Pathan'
+const Riyaz = ['Riyaz', lastName, 2023 - 1997,]
+
+//Exercise 
+const calAge = function (birthYear) {
+    return 2023 - birthYear;
+}
+const years = [1997, 2000, 2010, 2014, 2018, 2021]
+const age1 = calAge(years[0])
+const age2 = calAge(years[2])
+const age3 = calAge(years[years.length - 1])
+console.log(age1, age2, age3)
+
+const ages = [calAge(years[0]), calAge(years[2]), calAge(years[years.length - 1])]
+console.log(ages)
+
+//Another method of creating Array
+const num = new Array(1, 2, 3)
+console.log(num)
+*/
+
+
+// V6 Basic Array Operation (Methods)
+
+// add element in array
+let friends = ['Michael', 'John', 'Steven', 'Peter', 'Rock'];
+console.log(friends)
+
+
+friends.push('Rushikesh') // add element at end of an array
+console.log(friends)
+
+friends.unshift('Rizwan') //add element at start of an array
+console.log(friends)
+
+// Remove element in array
+let popp = friends.pop() // remove last element of an array
+console.log(friends, 'Removed item ->', popp)
+
+popp = friends.shift() // remove first element of an array
+console.log(friends, 'Removed item ->', popp)
+
+
+//index of item in an array
+console.log(friends.indexOf('Peter'))
+console.log(friends.indexOf('Riyaz')) //when item is not available -1
+
+//Check item is available or Not
+console.log(friends.includes('Peter'))
+console.log(friends.includes('Riyaz'))
+
+// its check through Strict Equality Operator ===
+friends.push(23);//Number
+console.log(friends.includes('23'))//string
+console.log(friends.includes(23))//number
+
