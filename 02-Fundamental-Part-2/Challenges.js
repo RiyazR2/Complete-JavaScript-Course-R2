@@ -93,3 +93,18 @@ values (so don't store the tip values in separate variables first, but right in 
 array) �
 GOOD LUCK �
 */
+
+let calcTip = function (bill) {
+    let tip = (bill >= 50 && bill <= 300) ? (bill / 100) * 15 : (bill / 100) * 20;
+    // let calcTipDesc = (`“The bill was ${bill}, the tip was ${tip}, and the total value ${bill + tip}”`)
+    return tip;
+}
+
+let billsArray = [125, 555, 44]
+let tipsArray = [calcTip(billsArray[0]), calcTip(billsArray[1]), calcTip(billsArray[2])];
+
+console.log(billsArray)
+console.log(tipsArray)
+
+let totalArray = [billsArray[0] + tipsArray[0], billsArray[1] + tipsArray[1], billsArray[2] + tipsArray[2]];
+console.log(totalArray)
