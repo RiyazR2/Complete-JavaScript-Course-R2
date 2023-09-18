@@ -165,7 +165,7 @@ const num = new Array(1, 2, 3)
 console.log(num)
 */
 
-
+/*
 // V6 Basic Array Operation (Methods)
 
 // add element in array
@@ -200,3 +200,38 @@ friends.push(23);//Number
 console.log(friends.includes('23'))//string
 console.log(friends.includes(23))//number
 
+*/
+
+// V7 Introduction to Objects
+const riyazArray = ['Riyaz', 'Pathan', 2023 - 1997, 'XYZ', ['Kirat', 'Gandhmal', 'Sunki', 'Hangargekar']]
+
+const riyazObject = { firstName: 'Riyaz', lastName: 'Pathan', age: 2023 - 1997, company: 'XYZ', friends: ['Kirat', 'Gandhmal', 'Sunki', 'Hangargekar'] }
+console.log(riyazArray)
+console.log(riyazObject)
+
+// V8 Dot and Bracket Notations
+
+
+console.log(riyazObject.firstName);
+console.log(riyazObject['firstName'])
+
+// add key and value
+riyazObject.country = 'INDIA'
+riyazObject['Github'] = 'RiyazR2'
+
+const nameKey = 'Name'
+console.log(riyazObject['last' + nameKey])
+console.log(riyazObject['first' + nameKey])
+
+
+
+// const userInterest = prompt("what do you want to know about Riyaz? choose between firstName, lastName, age, company and friends");
+
+// // console.log(riyazObject.userInterest) //Undefined
+// console.log(riyazObject[userInterest])
+
+// if (riyazObject[userInterest]) {
+//     console.log(riyazObject[userInterest])
+// } else {
+//     console.log('Wrong Choose !!!! Please choose between firstName, lastName, age, company and friends')
+// }
