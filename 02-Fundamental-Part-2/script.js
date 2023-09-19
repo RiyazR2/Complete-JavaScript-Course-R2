@@ -240,7 +240,7 @@ console.log(riyazObject['first' + nameKey])
 
 */
 
-
+/*
 // V9 Object Methods
 const riyazObject = {
     firstName: 'Riyaz',
@@ -284,3 +284,17 @@ console.log(riyazObject.age)
 //Challenge : 'Riyaz is a 26-year old working in XYZ, and he has a driver's License'
 
 console.log(riyazObject.getSummary())
+*/
+
+// V10 For Loop
+
+console.log('Lifting weights repetition 1 🏋️');
+console.log('Lifting weights repetition 2 🏋️');
+console.log('Lifting weights repetition 3 🏋️');
+console.log('Lifting weights repetition 4 🏋️');
+
+console.log('Before using FOR LOOP ☝️\n After using FOR LOOP 👇')
+//For Loop keeps running while conditions is TRUE
+for (let rep = 1; rep <= 5; rep++) {
+    console.log(`Lifting weights repetition ${rep} 🏋️`)
+}
