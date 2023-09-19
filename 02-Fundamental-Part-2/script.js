@@ -147,7 +147,7 @@ console.log(friends)
 const lastName = 'Pathan'
 const Riyaz = ['Riyaz', lastName, 2023 - 1997,]
 
-//Exercise 
+//Exercise
 const calAge = function (birthYear) {
     return 2023 - birthYear;
 }
@@ -202,6 +202,8 @@ console.log(friends.includes(23))//number
 
 */
 
+
+/*
 // V7 Introduction to Objects
 const riyazArray = ['Riyaz', 'Pathan', 2023 - 1997, 'XYZ', ['Kirat', 'Gandhmal', 'Sunki', 'Hangargekar']]
 
@@ -235,3 +237,50 @@ console.log(riyazObject['first' + nameKey])
 // } else {
 //     console.log('Wrong Choose !!!! Please choose between firstName, lastName, age, company and friends')
 // }
+
+*/
+
+
+// V9 Object Methods
+const riyazObject = {
+    firstName: 'Riyaz',
+    lastName: 'Pathan',
+    birthYear: 1997,
+    company: 'XYZ',
+    friends: ['Kirat', 'Gandhmal', 'Sunki', 'Hangargekar'],
+    hasDriversLincense: true,
+    // calcAge: function (birthYear) {
+    //     return 2023 - birthYear;
+    // }
+
+    // // this method (this is equal to object calling method)
+    // calcAge: function () {
+    //     console.log(this) // shows whole object
+    //     return 2023 - this.birthYear;
+    // }
+
+    calcAge: function () {
+        this.age = 2023 - this.birthYear; //object age property created
+        return this.age
+    },
+    getSummary: function () {
+        return console.log(`${this.firstName} is a ${this.calcAge()}-year old working in ${this.company}, and he has ${this.hasDriversLincense ? 'a' : 'no'} driver's License `)
+    }
+}
+////for normal function
+// console.log(riyazObject.calcAge(2000))
+// console.log(riyazObject['calcAge'](2000))
+
+// //using this method
+// console.log(riyazObject.calcAge())
+
+//after creating property age
+console.log(riyazObject.calcAge())
+
+console.log(riyazObject.age)
+console.log(riyazObject.age)
+console.log(riyazObject.age)
+
+//Challenge : 'Riyaz is a 26-year old working in XYZ, and he has a driver's License'
+
+console.log(riyazObject.getSummary())
