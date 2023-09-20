@@ -298,3 +298,61 @@ console.log('Before using FOR LOOP ☝️\n After using FOR LOOP 👇')
 for (let rep = 1; rep <= 5; rep++) {
     console.log(`Lifting weights repetition ${rep} 🏋️`)
 }
+
+
+// // V11 Looping Array, Breaking and Continuing 
+// const jonas = [
+//     'Jonas',
+//     'Schmedtmann',
+//     2037 - 1991,
+//     'Teacher',
+//     ['Michael', 'Peter', 'Steven'],
+//     true
+// ]
+// for (let i = 0; i < jonas.length; i++) {
+//     console.log(jonas[i], typeof jonas[i])
+// }
+
+const types = [];
+const jonas = [
+    'Jonas',
+    'Schmedtmann',
+    2037 - 1991,
+    'Teacher',
+    ['Michael', 'Peter', 'Steven'],
+    true
+]
+for (let i = 0; i < jonas.length; i++) {
+    //Reading from Jonas Array
+    console.log(jonas[i], typeof jonas[i])
+
+    //Filling types Array
+    // types[i] = typeof jonas[i];
+    types.push(typeof jonas[i])
+}
+
+console.log(types)
+
+//Calculating Ages
+
+const birthYears = [1994, 1996, 1997, 2000, 2007];
+const ages = [];
+for (let i = 0; i < birthYears.length; i++) {
+    ages.push(2023 - birthYears[i])
+}
+console.log(ages)
+
+
+
+// Continue and Break
+console.log(`----- ONLY STRING -----`)
+for (let i = 0; i < jonas.length; i++) {
+    if (typeof jonas[i] !== 'string') continue
+    console.log(jonas[i], typeof jonas[i])
+}
+
+console.log(`----- BREAK WHEN NUMBER COMES -----`)
+for (let i = 0; i < jonas.length; i++) {
+    if (typeof jonas[i] === 'number') break;
+    console.log(jonas[i], typeof jonas[i])
+}
