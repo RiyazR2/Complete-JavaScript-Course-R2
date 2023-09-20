@@ -209,3 +209,28 @@ the console (for numbers 1 to 50): 'Voter number 1 is currently voting'
 for (let voter = 1; voter <= 50; voter++) {
     console.log(`Voter number ${voter} is currently voting`)
 }
+
+
+/* Assignment 11 LECTURE: Looping Arrays, Breaking and Continuing
+1. Let's bring back the 'populations' array from a previous assignment
+2. Use a for loop to compute an array called 'percentages2' containing the
+percentages of the world population for the 4 population values. Use the
+function 'percentageOfWorld1' that you created earlier
+3. Confirm that 'percentages2' contains exactly the same values as the
+'percentages' array that we created manually in the previous assignment,
+and reflect on how much better this solution is
+*/
+
+// function percentageOfWorld1(population) {
+//     return (population / 7900) * 100;
+// }
+let populationArray2 = [1428, 1425, 336, 276]
+const percentageArray2 = [];
+for (let i = 0; i < populationArray2.length; i++) {
+    const perc = percentageOfWorld1(populationArray2[i]).toFixed(2) //percentageOfWorld1 function is called that we created above
+    percentageArray2.push(perc)
+}
+console.log(populationArray2)
+console.log(percentageArray2)
+
+
