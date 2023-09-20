@@ -356,3 +356,42 @@ for (let i = 0; i < jonas.length; i++) {
     if (typeof jonas[i] === 'number') break;
     console.log(jonas[i], typeof jonas[i])
 }
+
+
+// V12 Looping Backwards and Loops in loops
+
+console.log('------ Reverse LOOP -----')
+for (let i = jonas.length - 1; i >= 0; i--) {
+    console.log(i, jonas[i])
+}
+
+//Loop in Loop
+
+for (let Exercise = 1; Exercise < 4; Exercise++) {
+    console.log(`------- Starting Exercise ${Exercise} -------`);
+
+    for (let rep = 1; rep <= 5; rep++) {
+        console.log(`Exercise ${Exercise}: Lifting Weight repetition ${rep} 🏋️`)
+    }
+}
+
+// V13 WHILE LOOP
+for (let rep = 1; rep <= 5; rep++) {
+    console.log(`FOR : Lifting weights repetition ${rep} 🏋️`)
+}
+
+let rep = 1;
+while (rep <= 5) {
+    console.log(`WHILE : Lifting weights repetition ${rep} 🏋️`)
+    rep++
+}
+
+//Dice Game
+
+let dice = Math.trunc(Math.random() * 6) + 1;
+while (dice !== 6) {
+    console.log(`You rolled a ${dice}`);
+    dice = Math.trunc(Math.random() * 6) + 1;
+    if (dice === 6) console.log('Loop is about to end you rolled 6 .........')
+
+}
