@@ -51,4 +51,3 @@ btnRoll.addEventListener('click', function () {
     player1El.classList.toggle('player--active');
   }
 });
-//Rewatching concept of dice game for better understanding
