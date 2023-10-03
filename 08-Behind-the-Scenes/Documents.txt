@@ -6,3 +6,7 @@ https://dev.to/sanderdebr/a-brief-explanation-of-the-javascript-engine-and-runti
 https://medium.com/joonsikyang/execution-contexts-and-the-call-stack-cf53679b2c39
 
 https://codedamn.com/news/javascript/execution-context-and-call-stack
+
+
+#Scope and Scope Chain in JavaScript
+https://www.geeksforgeeks.org/explain-scope-and-scope-chain-in-javascript/
