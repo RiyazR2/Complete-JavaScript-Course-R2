@@ -10,3 +10,8 @@ https://codedamn.com/news/javascript/execution-context-and-call-stack
 
 #Scope and Scope Chain in JavaScript
 https://www.geeksforgeeks.org/explain-scope-and-scope-chain-in-javascript/
+
+
+12 Key Advanced JavaScript Concepts
+https://www.wearecapicua.com/blog/12-advanced-javascript-concepts
+https://www.paulsblog.dev/advanced-javascript-concepts-to-write-high-quality-code-that-scales/
