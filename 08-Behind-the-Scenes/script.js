@@ -33,6 +33,7 @@ function calcAge(birthYear) {
 
     // console.log(add(2, 8)); //Error : add is not defined But if we rempve STRICT MODE this callfunction will work
   }
+
   printDetails();
   return age;
 }
