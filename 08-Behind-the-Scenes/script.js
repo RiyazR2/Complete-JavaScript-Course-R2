@@ -151,3 +151,28 @@ const Jonas = {
 Jonas.greet(); // Hey undefined
 */
 /* ********************** Primitives vs. Objects (Primitive vs. Reference Types) ************/
+
+/*
+//PRIMITIVE TYPES
+Number, String, Boolean, Undefined, Null, Symbol, BigInt
+
+
+OBJECTS: REFERENCE TYPES
+Object literal, Arrays, Functions, Many more...
+*/
+let age = 26;
+let oldAge = age;
+age = 27;
+
+console.log(oldAge);
+console.log(age);
+
+const me = {
+  name: 'Jonas',
+  age: 30,
+};
+const friend = me;
+
+friend.age = 25;
+console.log('Me', me);
+console.log('Friend', friend);
