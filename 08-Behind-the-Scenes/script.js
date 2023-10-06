@@ -93,7 +93,7 @@ console.log(z === window.z);
 */
 
 /* ********************************* The this Keyword in Practice ******************************** */
-
+/*
 console.log(this); // Pointing to window Object
 
 function calcAge1(birthYear) {
@@ -131,3 +131,23 @@ const Riyaz = {
 Riyaz.calcAge = Jonas.calcAge;
 
 Riyaz.calcAge();
+*/
+
+/* ********************************* Regular Function vs Arrow Function ******************************** */
+/*
+const Jonas = {
+  firstName: 'Jonas',
+  year: 1991,
+  calcAge: function () {
+    console.log(this);
+    console.log(2023 - this.year);
+  },
+
+  greet: () => console.log(`Hey ${this.firstName}`),
+  //Arrow Function doesn't get its own this keyword
+  // it simply use this keyword from its surroundings i.e from it parent this keyword
+};
+
+Jonas.greet(); // Hey undefined
+*/
+/* ********************** Primitives vs. Objects (Primitive vs. Reference Types) ************/
