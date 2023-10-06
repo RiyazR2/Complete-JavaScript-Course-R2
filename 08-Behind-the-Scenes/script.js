@@ -71,6 +71,7 @@ const addExp = function (a, b) {
 var addArrow = (a, b) => a + b;
 */
 
+/*
 //Example
 
 console.log(numProducts);
@@ -89,3 +90,44 @@ const z = 3;
 console.log(x === window.x);
 console.log(y === window.y);
 console.log(z === window.z);
+*/
+
+/* ********************************* The this Keyword in Practice ******************************** */
+
+console.log(this); // Pointing to window Object
+
+function calcAge1(birthYear) {
+  console.log(2023 - birthYear);
+  console.log(this); //undefined
+}
+
+const calcAge2 = function (birthYear) {
+  console.log(2023 - birthYear);
+  console.log(this); //undefined
+};
+
+const calcAge3 = birthYear => {
+  console.log(2023 - birthYear);
+  console.log(this); //Pointing to window i.e it use this keyword from its parent function or its parent Scope
+};
+
+calcAge1(1997);
+calcAge2(1997);
+calcAge3(1997);
+
+const Jonas = {
+  year: 1991,
+  calcAge: function () {
+    console.log(this);
+    console.log(2023 - this.year);
+  },
+};
+Jonas.calcAge();
+
+const Riyaz = {
+  year: 1997,
+};
+
+Riyaz.calcAge = Jonas.calcAge;
+
+Riyaz.calcAge();
