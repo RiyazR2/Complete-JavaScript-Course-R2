@@ -23,3 +23,14 @@ https://www.paulsblog.dev/advanced-javascript-concepts-to-write-high-quality-cod
 https://www.freecodecamp.org/news/javascript-temporal-dead-zone-and-hoisting-explained/
 
 
+#The this Keyword
+https://www.freecodecamp.org/news/the-this-keyword-in-javascript/
+
+
+
+#Arrow Functions
+https://www.freecodecamp.org/news/arrow-function-javascript-tutorial-how-to-declare-a-js-function-with-the-new-es6-syntax/
+
+
+#Arrow Functions vs Regular Functions in JavaScript – What's the Difference?
+https://www.freecodecamp.org/news/the-difference-between-arrow-functions-and-normal-functions/
