@@ -176,3 +176,5 @@ const friend = me;
 friend.age = 25;
 console.log('Me', me);
 console.log('Friend', friend);
+
+// End of Part 8
