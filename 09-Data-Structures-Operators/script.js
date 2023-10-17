@@ -15,7 +15,11 @@ const restaurant = {
   order: function (starterIndex, mainIndex) {
     return [this.starterMenu[starterIndex], this.mainMenu[mainIndex]];
   },
-
+  orderPasta: function (ing1, ing2, ing3) {
+    console.log(
+      `Here is Your Delicious Pasta with ${ing1}, ${ing2} and ${ing3}`
+    );
+  },
   openingHours: {
     thu: {
       open: 12,
@@ -32,6 +36,9 @@ const restaurant = {
   },
 };
 
+/* ******************************** Array Destructing ********************************************************* */
+
+/*
 let [main, , secondary] = restaurant.categories;
 console.log(main, secondary);
 
@@ -64,3 +71,97 @@ console.log(a, b, c, d);
 // Default Values
 const [p = 1, q = 1, r = 1] = [7, 8];
 console.log(p, q, r);
+*/
+
+/* ******************************** Obeject Destructing ********************************************************* */
+/*
+
+//Here no need to skip through comma's, Just mention property name
+const { name, openingHours, categories } = restaurant;
+console.log(name, openingHours, categories);
+
+// Alternative Variable Name
+const {
+  name: restaurantName,
+  openingHours: hours,
+  categories: tags,
+} = restaurant;
+console.log(restaurantName, hours, tags);
+
+//Default Value
+
+const { menu = [], starterMenu: starters = [] } = restaurant;
+console.log(menu, starters);
+
+// Mutating Variables
+let a = 99;
+let b = 111;
+console.log(a, b);
+const obj = {
+  a: 23,
+  b: 7,
+  c: 14,
+};
+
+({ a, b } = obj);
+console.log(a, b);
+
+
+//Nested Object
+const { fri } = openingHours;
+console.log(fri);
+
+const {
+  fri: { open, close },
+} = openingHours;
+console.log(open, close);
+
+const {
+  fri: { open: opn, close: cls },
+} = openingHours;
+console.log(opn, cls);
+
+*/
+
+/* ******************************** Spread Operator ********************************************************* */
+
+const arr = [6, 7, 8, 9, 10];
+const badArr = [2, 3, 4, 5, arr[0], arr[1], arr[2], arr[3], arr[4]];
+console.log(badArr);
+
+const goodArr = [2, 3, 4, 5, ...arr];
+console.log(goodArr); // its just one 1 big value i.e Array
+
+//But if we use spread operator to expand new array,
+console.log(...goodArr); // So Now logged the individual elements of the array i.e
+console.log(2, 3, 4, 5, 6, 7, 8, 9, 10);
+
+console.log(restaurant.mainMenu);
+// Adding New Menu in New Array using previous menu through SpreadOperator
+const newMenu = [...restaurant.mainMenu, 'Gnocci'];
+console.log(newMenu);
+
+// Copy Array
+const mainMenuCopy = [...restaurant.mainMenu];
+
+// Join 2 Array
+const menu = [...restaurant.starterMenu, ...restaurant.mainMenu];
+console.log(menu);
+
+// Real World Example
+const ingredients = [
+  // prompt("let's make Pasta! Ingredient 1?"),
+  // prompt('Ingredient 2?'),
+  // prompt('Ingredient 3?'),
+];
+console.log(ingredients);
+
+// Without Spread Operator
+restaurant.orderPasta(ingredients[0], ingredients[1], ingredients[2]);
+
+// With Spread Operator
+restaurant.orderPasta(...ingredients);
+
+//OBJECT Spreding with additional data
+const newRestourant = { Founded: 1998, ...restaurant, Founder: 'Guiseppe' };
+console.log(newRestourant);
