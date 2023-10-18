@@ -20,6 +20,10 @@ const restaurant = {
       `Here is Your Delicious Pasta with ${ing1}, ${ing2} and ${ing3}`
     );
   },
+  orderPizza: function (mainIngredient, ...otherIngredients) {
+    console.log(mainIngredient);
+    console.log(otherIngredients);
+  },
   openingHours: {
     thu: {
       open: 12,
@@ -125,6 +129,7 @@ console.log(opn, cls);
 
 /* ******************************** Spread Operator ********************************************************* */
 
+/*
 const arr = [6, 7, 8, 9, 10];
 const badArr = [2, 3, 4, 5, arr[0], arr[1], arr[2], arr[3], arr[4]];
 console.log(badArr);
@@ -165,3 +170,49 @@ restaurant.orderPasta(...ingredients);
 //OBJECT Spreding with additional data
 const newRestourant = { Founded: 1998, ...restaurant, Founder: 'Guiseppe' };
 console.log(newRestourant);
+
+*/
+
+/* ******************************** Rest Parameter ********************************************************* */
+
+/// 1] Destructuring
+
+// SPREAD because on RIGHT side of Assignment = Operator
+const arr = [1, 2, ...[3, 4]];
+console.log(arr);
+
+// REST because on LEFT side of assignment = Operator
+const [a, b, ...others] = [1, 2, 3, 4, 5];
+console.log(a, b, others);
+
+// this is above object data just put here for better understanding as comment
+//starterMenu: ['Focaccia', 'Bruschetta', 'Garlic Bread', 'Caprese Salad'],
+// mainMenu: ['Pizza', 'Pasta', 'Risotto'],
+
+//3 dots ... on boths sides of the assignment operator
+const [pizza, , risotto, ...otherFood] = [
+  restaurant.mainMenu,
+  ...restaurant.starterMenu,
+];
+console.log(pizza, risotto, otherFood);
+
+//Object
+
+const { sat, ...weekdays } = restaurant.openingHours;
+console.log(weekdays, sat);
+
+/// 2] Function
+const add = function (...numbers) {
+  let sum = 0;
+  for (let i = 0; i < numbers.length; i++) {
+    sum += numbers[i];
+  }
+  console.log(sum);
+};
+
+add(1, 2);
+add(3, 4, 5);
+const storeNum = [0, 1, 2, 3, 4, 5];
+add(...storeNum);
+
+restaurant.orderPizza('mushrooms', 'onion', 'olives', 'spinach');
