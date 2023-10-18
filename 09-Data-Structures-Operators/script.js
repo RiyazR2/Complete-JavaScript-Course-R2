@@ -174,7 +174,7 @@ console.log(newRestourant);
 */
 
 /* ******************************** Rest Parameter ********************************************************* */
-
+/*
 /// 1] Destructuring
 
 // SPREAD because on RIGHT side of Assignment = Operator
@@ -216,3 +216,29 @@ const storeNum = [0, 1, 2, 3, 4, 5];
 add(...storeNum);
 
 restaurant.orderPizza('mushrooms', 'onion', 'olives', 'spinach');
+*/
+
+/* ******************************** Short Circuiting ( && and || )********************************************************* */
+
+//they can use any data type
+//they can return any data type
+// and they do Short Circuiting
+
+// Result of the OR || operator Doesn't Always have tobe Boolean
+console.log(10 || 'Riyaz');
+console.log('', 'Riyaz'); // falsy value ''
+console.log(true, 0);
+console.log(undefined, null);
+
+//Short Circuit :- falsy value ignore direct jump to first true value then ignore remaining true and falsy value
+console.log(undefined || 0 || '' || 'Hello' || 23 || null); // Hello
+
+const guests1 = restaurant.numGuest ? restaurant.numGuest : 10;
+console.log(guests1);
+
+console.log('------AND------');
+console.log(0 && 'Riyaz'); // 0
+console.log(10 && 'Riyaz'); // Riyaz
+
+//Short Circuit :- check all truthy value if all are turthy then it return last thruth value and if their is some true value and then comes the falsy value it stop execution and return falsy value
+console.log('Hello' && 23 && null && 'Riyaz'); // null
