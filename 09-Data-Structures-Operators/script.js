@@ -220,6 +220,7 @@ restaurant.orderPizza('mushrooms', 'onion', 'olives', 'spinach');
 
 /* ******************************** Short Circuiting ( && and || )********************************************************* */
 
+/*
 //they can use any data type
 //they can return any data type
 // and they do Short Circuiting
@@ -242,3 +243,73 @@ console.log(10 && 'Riyaz'); // Riyaz
 
 //Short Circuit :- check all truthy value if all are turthy then it return last thruth value and if their is some true value and then comes the falsy value it stop execution and return falsy value
 console.log('Hello' && 23 && null && 'Riyaz'); // null
+
+// Practical Example
+if (restaurant.orderPizza) {
+  restaurant.orderPizza('mashrom', 'spinach');
+}
+
+// same work as above
+
+restaurant.orderPizza && restaurant.orderPizza('mushrom', 'spinach');
+*/
+
+/* ******************************** Nullish Coalescing Operator ?? ********************************************************* */
+
+/*
+restaurant.numGuest = 0;
+const guests = restaurant.numGuest || 10;
+console.log(guests);
+
+const guestCorrect = restaurant.numGuest ?? 10;
+console.log(guestCorrect);
+
+*/
+
+/* ******************************** Logical Assignment Operators ********************************************************* */
+/*
+const rest1 = {
+  name: 'capri',
+  // numGuest: 20,
+  numGuest: 0,
+};
+
+const rest2 = {
+  name: 'La Piazza',
+  owner: 'Giovanni Rossi',
+};
+
+/// OR Assignment Operator
+// rest1.numGuest = rest1.numGuest || 10; //20
+// rest2.numGuest = rest2.numGuest || 10; //10
+
+// rest1.numGuest ||= 10; //20
+// rest2.numGuest ||= 10; //10
+
+// console.log(rest1.numGuest, rest2.numGuest);
+
+rest1.numGuest ??= 10; //20
+rest2.numGuest ??= 10; //10
+
+console.log(rest1.numGuest, rest2.numGuest);
+*/
+
+/* ******************************** Looping Arrays: The for-of Loop ********************************************************* */
+
+const menu = [...restaurant.starterMenu, ...restaurant.mainMenu];
+console.log(menu);
+
+for (const item of menu) {
+  console.log(item);
+}
+
+for (const item of menu.entries()) {
+  console.log(item); // Each item is an array now with an index
+}
+
+console.log(menu.entries()); // Array Iterator{}
+console.log([...menu.entries()]);
+
+for (const [item, element] of menu.entries()) {
+  console.log(`${item + 1}: ${element}`);
+}
