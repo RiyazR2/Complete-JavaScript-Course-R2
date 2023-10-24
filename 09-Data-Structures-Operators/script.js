@@ -4,7 +4,26 @@
 const flights =
   '_Delayed_Departure;fao93766109;txl2133758440;11:25+_Arrival;bru0943384722;fao93766109;11:45+_Delayed_Arrival;hel7439299980;fao93766109;12:05+_Departure;fao93766109;lis2323639855;12:30';
 
+const weekdays = ['mon', 'tue', 'wed', 'thu', 'fri', 'sat', 'sun'];
+
+const openingHours = {
+  [weekdays[3]]: {
+    open: 12,
+    close: 22,
+  },
+  [weekdays[4]]: {
+    open: 11,
+    close: 23,
+  },
+  //[weekdays[`${2 + 3}`]]
+  [weekdays[5]]: {
+    open: 0, // Open 24 hours
+    close: 24,
+  },
+};
+
 // Data needed for first part of the section
+
 const restaurant = {
   name: 'Classico Italiano',
   location: 'Via Angelo Tavanti 23, Firenze, Italy',
@@ -12,32 +31,25 @@ const restaurant = {
   starterMenu: ['Focaccia', 'Bruschetta', 'Garlic Bread', 'Caprese Salad'],
   mainMenu: ['Pizza', 'Pasta', 'Risotto'],
 
-  order: function (starterIndex, mainIndex) {
+  // order: function (starterIndex, mainIndex) {
+  //   return [this.starterMenu[starterIndex], this.mainMenu[mainIndex]];
+  // },
+  order(starterIndex, mainIndex) {
+    // Enhanced method
     return [this.starterMenu[starterIndex], this.mainMenu[mainIndex]];
   },
-  orderPasta: function (ing1, ing2, ing3) {
+  orderPasta(ing1, ing2, ing3) {
     console.log(
       `Here is Your Delicious Pasta with ${ing1}, ${ing2} and ${ing3}`
     );
   },
-  orderPizza: function (mainIngredient, ...otherIngredients) {
+  orderPizza(mainIngredient, ...otherIngredients) {
     console.log(mainIngredient);
     console.log(otherIngredients);
   },
-  openingHours: {
-    thu: {
-      open: 12,
-      close: 22,
-    },
-    fri: {
-      open: 11,
-      close: 23,
-    },
-    sat: {
-      open: 0, // Open 24 hours
-      close: 24,
-    },
-  },
+
+  // openingHours: openingHours,
+  openingHours, // ES6 Enhanced Object Literals
 };
 
 /* ******************************** Array Destructing ********************************************************* */
@@ -295,7 +307,7 @@ console.log(rest1.numGuest, rest2.numGuest);
 */
 
 /* ******************************** Looping Arrays: The for-of Loop ********************************************************* */
-
+/*
 const menu = [...restaurant.starterMenu, ...restaurant.mainMenu];
 console.log(menu);
 
@@ -312,4 +324,59 @@ console.log([...menu.entries()]);
 
 for (const [item, element] of menu.entries()) {
   console.log(`${item + 1}: ${element}`);
+}
+*/
+/* ******************************** Optional Chaining ********************************************************* */
+
+/*
+Optional Chaining is a feature in Javascript that allows you to access properties of an object or elements of an array without having to check whether the object or array is null or undefined first. It is represented by the ?. Operator and can be used to concisely access deeply nested properties without having to write a long chain of if statements to check for null or undefined values.
+
+Optional Chaining can also be used to access elements of an array in javascript. It works in a similar way to accessing properties of an object, but using the ?.[ ] operator instead of the ?. operator. 
+*/
+
+console.log(restaurant.openingHours.mon); //undefined
+// console.log(restaurant.openingHours.mon.open); // Error : Cannot read properties of undefined (reading 'open')
+
+//With Optional Chaining
+console.log(restaurant.openingHours.mon?.open);
+console.log(restaurant.openingHours?.mon?.open);
+
+// Examples
+
+const days = ['mon', 'tue', 'wed', 'thu', 'fri', 'sat', 'sun'];
+
+for (const day of days) {
+  // we want to use variable name as property name, We need to use bracket notation
+  const open = restaurant.openingHours[day]?.open ?? 'Closed';
+  console.log(`On ${day}, we open at ${open}`);
+  // console.log(day);
+}
+
+//Methods
+console.log(restaurant.order?.(0, 1) ?? 'Method does not exist'); // ['Focaccia', 'Pasta']
+console.log(restaurant.orderRisotto?.(0, 1) ?? 'Method does not exist'); // Method does not exist
+
+// console.log(restaurant.orderRisotto(0, 1) ?? 'Method does not exist'); // Error
+
+//Arrays
+const users = [
+  {
+    name: 'Jonas',
+    email: 'hello@jonas.io',
+  },
+];
+
+// const users =[];
+
+console.log(users[0]?.name ?? 'User Array empty');
+
+// for more details refer .Docx file
+
+/* ******************************** Looping Objects: Object Keys, Values, and Entries ******************************* */
+
+const properties = Object.keys(restaurant.openingHours);
+console.log(properties);
+
+for (const day of Object.keys(restaurant.openingHours)) {
+  console.log(day);
 }
