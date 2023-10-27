@@ -334,6 +334,7 @@ Optional Chaining is a feature in Javascript that allows you to access propertie
 Optional Chaining can also be used to access elements of an array in javascript. It works in a similar way to accessing properties of an object, but using the ?.[ ] operator instead of the ?. operator. 
 */
 
+/*
 console.log(restaurant.openingHours.mon); //undefined
 // console.log(restaurant.openingHours.mon.open); // Error : Cannot read properties of undefined (reading 'open')
 
@@ -371,9 +372,9 @@ const users = [
 console.log(users[0]?.name ?? 'User Array empty');
 
 // for more details refer .Docx file
-
+*/
 /* ******************************** Looping Objects: Object Keys, Values, and Entries ******************************* */
-
+/*
 const properties = Object.keys(restaurant.openingHours);
 console.log(properties);
 
@@ -395,3 +396,85 @@ const entries = Object.entries(openingHours);
 for (const [key, { open, close }] of entries) {
   console.log(`On ${key} we open at ${open} and close at ${close}`);
 }
+*/
+
+/* ****************************************** SET in JavaScript ****************************************** */
+/*
+
+console.log(new Set('Riyaz')); //Set(5) {'R', 'i', 'y', 'a', 'z'}
+const orderSet = new Set([
+  'Pasta',
+  'Pizza',
+  'Pizza',
+  'Risotto',
+  'Pasta',
+  'Pizza',
+]);
+console.log(orderSet); // Set(3) {'Pasta', 'Pizza', 'Risotto'}
+0;
+
+console.log(orderSet.size);
+console.log(orderSet.has('Pizza'));
+console.log(orderSet.has('Bread'));
+orderSet.add('Garlic Bread');
+orderSet.add('Garlic Bread');
+console.log(orderSet);
+orderSet.delete('Risotto');
+console.log(orderSet);
+// orderSet.clear();
+// console.log(orderSet);
+
+for (const order of orderSet) console.log(order);
+
+//Example
+const staff = ['Waiter', 'Chef', 'Waiter', 'Manger', 'Chef', 'Waiter'];
+console.log(staff);
+
+const staffUnique = new Set(staff);
+console.log(staffUnique);
+
+*/
+
+/* ****************************************** MAP Fundamentals ****************************************** */
+
+const rest = new Map();
+rest.set('name', 'Classico Italiano');
+rest.set(1, 'Firenze, Italy');
+console.log(rest.set(2, 'Lisbon, Portugal'));
+
+rest
+  .set('Categories', ['Italian', 'Pizzeria', 'Vegetarian', 'Organnic'])
+  .set('open', 11)
+  .set('close', 23)
+  .set(true, 'we are open :D')
+  .set(false, 'we are closed :(');
+
+console.log(rest);
+
+console.log(rest.get('name'));
+console.log(rest.get('Categories'));
+console.log(rest.get(true));
+console.log(rest.get(1));
+
+const time = 8;
+console.log(rest.get(time > rest.get('open') && time < rest.get('close')));
+
+console.log(rest.has('Categories'));
+rest.delete(2); // here 2 is key
+console.log(rest);
+
+console.log(rest.size);
+// rest.clear() // now size is 0 of rest
+
+rest.set([1, 2], 'Test');
+console.log(rest);
+
+//We cannot access Test using key[1,2]
+console.log(rest.get([1, 2])); // undefined
+
+//we can do like this
+const arr = [1, 2];
+rest.set(arr, 'Test');
+console.log(rest.get(arr)); // Test
+
+/******************************* Maps : Iterations *********************************/
