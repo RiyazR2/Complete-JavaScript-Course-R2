@@ -552,3 +552,71 @@ const checkMiddleSeat = function (seat) {
 checkMiddleSeat('11B');
 checkMiddleSeat('23C');
 checkMiddleSeat('3E');
+console.log(
+  '***************************************************************************'
+);
+console.log(airline.toLowerCase());
+console.log(airline.toUpperCase());
+console.log('riyaz'.toUpperCase());
+
+// Fix Capitalization
+const passenger = 'jOnAS';
+const passengerLower = passenger.toLowerCase();
+const passengerCorrect =
+  passengerLower[0].toUpperCase() + passengerLower.slice(1);
+console.log(passengerCorrect);
+
+// Comparing Emails
+const email = 'hello@jonas.io';
+console.log(email);
+const loginEmail = '   Hello@Jonas.Io  \n';
+console.log(loginEmail);
+
+// const lowerEmail = loginEmail.toLowerCase();
+// const trimmedEmail = lowerEmail.trim();
+// console.log(trimmedEmail);
+
+// OR
+
+const normalizeEmail = loginEmail.toLowerCase().trim();
+console.log(normalizeEmail);
+console.log(email === normalizeEmail);
+
+/// Replacing
+const priceGB = '288,97£';
+const priceUS = priceGB.replace('£', '$').replace(',', '.');
+console.log(priceGB);
+console.log(priceUS);
+
+const announcement =
+  'All Passengers come to boarding door 23. Boarding door  23!';
+
+console.log(announcement.replace('door', 'gate')); // only for single occurance
+console.log(announcement.replace(/door/g, 'gate')); // it for all occurance Global
+
+// Bolleans
+
+const plane2 = 'Airbus A320neo';
+console.log(plane2.includes('A320'));
+console.log(plane2.includes('Boeing'));
+console.log(plane2.startsWith('Airb'));
+
+if (plane2.startsWith('Airbus') && plane2.endsWith('neo')) {
+  console.log('Part of the NEW Airbus Family');
+}
+
+// Practice Exercise
+
+const checkBaggage = function (items) {
+  const baggage = items.toLowerCase();
+
+  if (baggage.includes('knife') || baggage.includes('gun')) {
+    console.log('You are NOT Allowed on Board');
+  } else {
+    console.log('Welcome Aboard!');
+  }
+};
+
+checkBaggage('I have a laptop, some Food and a pocket Knife');
+checkBaggage('Socks and Camera');
+checkBaggage('Got some snacks and a gun for protection');
