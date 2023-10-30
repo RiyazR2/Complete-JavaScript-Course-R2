@@ -436,7 +436,7 @@ console.log(staffUnique);
 */
 
 /* ****************************************** MAP Fundamentals ****************************************** */
-
+/*
 const rest = new Map();
 rest.set('name', 'Classico Italiano');
 rest.set(1, 'Firenze, Italy');
@@ -476,9 +476,9 @@ console.log(rest.get([1, 2])); // undefined
 const arr = [1, 2];
 rest.set(arr, 'Test');
 console.log(rest.get(arr)); // Test
-
+*/
 /******************************* Maps : Iterations *********************************/
-
+/*
 const question = new Map([
   ['question', 'What is the best programming Language in the world?'],
   [1, 'C'],
@@ -509,3 +509,46 @@ console.log(hoursMap);
 console.log([...question]);
 console.log([...question.keys()]);
 console.log([...question.values()]);
+*/
+
+//*********************************************************************************************************************************** */
+
+/******************************* Working With Strings - Part 1 *********************************/
+
+const airline = 'TAP Air Portugal';
+const plane = 'A320';
+
+console.log(plane[0]);
+console.log(plane[1]);
+console.log(plane[2]);
+console.log('B737'[0]);
+
+console.log(airline.length); // 16
+console.log('B737'.length); // 4
+
+console.log(airline.indexOf('r')); // 6
+console.log(airline.lastIndexOf('r')); // 10
+console.log(airline.indexOf('Portugal')); // 8
+console.log(airline.indexOf('portugal')); // -1 (not found this function is case Sensitive)
+
+console.log(airline.slice(4)); // Air Portugal
+console.log(airline.slice(4, 7)); // Air (7 is not include it Excluded)
+
+console.log(airline.slice(0, airline.indexOf(' '))); // TAP
+console.log(airline.slice(airline.lastIndexOf(' ') + 1)); // Portugal
+
+console.log(airline.slice(-2)); // al
+console.log(airline.slice(1, -1)); // AP Air Portuga
+
+const checkMiddleSeat = function (seat) {
+  // B and E are middle seats
+  const s = seat.slice(-1);
+  if (s === 'B' || s === 'E') {
+    console.log('You got the middle seat 😬');
+  } else {
+    console.log('You got Lucky 😎');
+  }
+};
+checkMiddleSeat('11B');
+checkMiddleSeat('23C');
+checkMiddleSeat('3E');
