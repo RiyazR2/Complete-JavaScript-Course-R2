@@ -62,3 +62,35 @@ checkIn(flight, jonas);
 console.log('**********************************************************');
 
 /* ***************************** Functions Accepting Callback Functions ***************************** */
+
+//take a string remove space and convert to lowercase
+const oneWord = function (str) {
+  return str.replace(/ /g, '').toLowerCase();
+};
+
+//take a string transform first the word of the input string to UppersCase
+const upperFirstWord = function (str) {
+  const [first, ...others] = str.split(' ');
+  return [first.toUpperCase(), ...others].join(' ');
+};
+
+// Higher Order Function = HOF
+const transformer = function (str, fn) {
+  console.log(`Original String: ${str}`);
+  console.log(`Transformed String: ${fn(str)}`);
+
+  // Function (name)property
+  console.log(`Transformed by: ${fn.name}`);
+
+  console.log('-------------------------------------------');
+};
+
+transformer('JavaScript is the best!', upperFirstWord);
+transformer('JavaScript is the best!', oneWord);
+
+// JS uses callbacks all the time
+const high5 = function () {
+  console.log('👋');
+};
+document.body.addEventListener('click', high5);
+['Jonas', 'Martha', 'Adam'].forEach(high5);
