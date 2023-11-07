@@ -100,7 +100,7 @@ document.body.addEventListener('click', high5);
 */
 
 /* ***************************** Functions Returning Functions ***************************** */
-
+/*
 const greet = function (greeting) {
   return function (name) {
     console.log(`${greeting} ${name}`);
@@ -120,7 +120,7 @@ const greetArr = greeting => name => console.log(`${greeting} ${name}`);
 greet('Hi')('Riyaz');
 
 console.log('*****************************************');
-
+*/
 /* ***************************** The call and apply Methods ***************************** */
 
 const lufthansa = {
@@ -132,16 +132,17 @@ const lufthansa = {
     console.log(
       `${name} booked a seat on ${this.airline} flight ${this.iataCode}${flightNum}`
     );
-    this.bookings.push({ fligh: `${this.iataCode}${flightNum}`, name });
+    this.bookings.push({ flight: `${this.iataCode}${flightNum}`, name });
   },
 };
 
 lufthansa.book(239, 'Jonas Schmedtmann');
 lufthansa.book(635, 'John Smith');
-
+console.log(lufthansa);
 console.log('-----------------------------------------');
+
 const eurowings = {
-  name: 'Eurowings',
+  airline: 'Eurowings',
   iataCode: 'EW',
   bookings: [],
 };
@@ -151,5 +152,84 @@ const book = lufthansa.book;
 // Does NOT work
 // book(23, 'Sarah Williams');
 
+// CALL METHOD
 book.call(eurowings, 23, 'Sarah Williams');
 console.log(eurowings);
+console.log('-----------------------------------------');
+
+book.call(lufthansa, 239, 'Mary Cooper');
+console.log(lufthansa);
+console.log('-----------------------------------------');
+
+const swiss = {
+  airline: 'Swiss Air Lines',
+  iataCode: 'LX',
+  bookings: [],
+};
+
+book.call(swiss, 583, 'Mary Cooper');
+console.log(swiss);
+console.log('-----------------------------------------');
+
+// APPLY METHOD
+const flightData = [583, 'George Cooper'];
+book.apply(swiss, flightData);
+console.log(swiss);
+console.log('-----------------------------------------');
+
+//this is same as apply method
+book.call(swiss, ...flightData);
+
+console.log('**********************************************');
+
+/* ***************************** The BIND Method ***************************** */
+
+// BIND Method
+const bookEW = book.bind(eurowings);
+const bookLH = book.bind(lufthansa);
+const bookLX = book.bind(swiss);
+
+bookEW(23, 'Steven Williamns');
+
+// Preset 23 so now we only need to to specify name
+const bookEW23 = book.bind(eurowings, 23);
+bookEW23('Jonas Schmedtmann');
+bookEW23('Martha Cooper');
+
+// With Event Listner
+lufthansa.planes = 300;
+lufthansa.buyPlane = function () {
+  console.log(this);
+
+  this.planes++;
+  console.log(this.planes);
+};
+
+// lufthansa.buyPlane();
+// document.querySelector('.buy').addEventListener('click', lufthansa.buyPlane);
+
+document
+  .querySelector('.buy')
+  .addEventListener('click', lufthansa.buyPlane.bind(lufthansa));
+console.log('-----------------------------------------');
+
+// Partial Application
+const addTax = (rate, value) => value + value * rate;
+console.log(addTax(0.1, 200));
+
+const addVAT = addTax.bind(null, 0.23);
+//addVAT = value => value + value * 0.23;
+
+console.log(addVAT(100));
+console.log(addVAT(23));
+
+console.log('-----------------------------------------');
+// same as above using the technique of one function returning another function
+const addTaxRate = function (rate) {
+  return function (value) {
+    return value + value * rate;
+  };
+};
+const addVAT2 = addTaxRate(0.23);
+console.log(addVAT2(100));
+console.log(addVAT2(23));
