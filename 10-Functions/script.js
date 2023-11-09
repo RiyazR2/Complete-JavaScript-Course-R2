@@ -123,6 +123,7 @@ console.log('*****************************************');
 */
 /* ***************************** The call and apply Methods ***************************** */
 
+/*
 const lufthansa = {
   airline: 'Lufthansa',
   iataCode: 'LH',
@@ -182,8 +183,10 @@ book.call(swiss, ...flightData);
 
 console.log('**********************************************');
 
-/* ***************************** The BIND Method ***************************** */
+*/
 
+/* ***************************** The BIND Method ***************************** */
+/*
 // BIND Method
 const bookEW = book.bind(eurowings);
 const bookLH = book.bind(lufthansa);
@@ -233,3 +236,96 @@ const addTaxRate = function (rate) {
 const addVAT2 = addTaxRate(0.23);
 console.log(addVAT2(100));
 console.log(addVAT2(23));
+
+*/
+/********************************************************************************************************************* */
+
+// const bookings = [];
+
+// const createBookings = function (flightNum, numPassengers, price) {
+//   const booking = {
+//     flightNum,
+//     numPassengers,
+//     price,
+//   };
+//   console.log(booking);
+//   bookings.push(booking);
+// };
+
+// createBookings('LH123');
+
+/********************************************************* */
+
+// const flight = 'LH234';
+// const jonas = {
+//   name: 'Jonas Schmedtmann',
+//   passport: 89524264642,
+// };
+
+// const checkIn = function (flightNum, passenger) {
+//   flightNum = 'LH999';
+//   passenger.name = 'Mr. ' + passenger.name;
+//   // console.log(flightNum);//LH999
+//   if (passenger.passport === 89524264642) {
+//     alert('Checked In');
+//   } else {
+//     alert('Wrong Passport!');
+//   }
+// };
+
+// checkIn(flight, jonas);
+// console.log(flight);
+// console.log(jonas);
+
+// const newPassport = function (person) {
+//   person.passport = Math.trunc(Math.random() * 10000000000);
+// };
+
+// newPassport(jonas);
+// checkIn(flight, jonas);
+
+/********************************************************* */
+
+// const oneWord = function (str) {
+//   return str.replace(/ /g, '').toLowerCase();
+// };
+
+// const upperFirstWord = function (str) {
+//   const [first, ...others] = str.split(' ');
+//   return [first.toUpperCase(), ...others].join(' ');
+// };
+
+// const transformer = function (str, fn) {
+//   console.log(`Originan String: ${str}`);
+//   console.log(`Transformed String: ${fn(str)}`);
+
+//   console.log(`Transformed by: ${fn.name}`);
+// };
+
+// transformer('javascript is the Best!', upperFirstWord);
+// transformer('javascript is the Best!', oneWord);
+
+// const high5 = function () {
+//   console.log('👋');
+// };
+
+// document.body.addEventListener('click', high5);
+// ['Adam', 'jonas', 'Peter', 'Rock'].forEach(high5);
+
+/********************************************************* */
+
+const greet = function (greeting) {
+  return function (name) {
+    console.log(`${greeting} ${name}`);
+  };
+};
+
+const greeterHey = greet('Hey');
+greeterHey('Riyaz');
+greeterHey('Jonas');
+
+greet('Hello')('Peter');
+
+const greet2 = greeting => name => console.log(`${greeting} ${name}`);
+
+greet2('Hello')('Peter');
