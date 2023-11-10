@@ -238,7 +238,7 @@ console.log(addVAT2(100));
 console.log(addVAT2(23));
 
 */
-/********************************************************************************************************************* */
+/******************* The Belove Code is just practice ********************** Re-Practiced for Better Understanding **************************************************************************** */
 
 // const bookings = [];
 
@@ -314,18 +314,107 @@ console.log(addVAT2(23));
 
 /********************************************************* */
 
-const greet = function (greeting) {
-  return function (name) {
-    console.log(`${greeting} ${name}`);
-  };
-};
+// const greet = function (greeting) {
+//   return function (name) {
+//     console.log(`${greeting} ${name}`);
+//   };
+// };
 
-const greeterHey = greet('Hey');
-greeterHey('Riyaz');
-greeterHey('Jonas');
+// const greeterHey = greet('Hey');
+// greeterHey('Riyaz');
+// greeterHey('Jonas');
 
-greet('Hello')('Peter');
+// greet('Hello')('Peter');
 
-const greet2 = greeting => name => console.log(`${greeting} ${name}`);
+// const greet2 = greeting => name => console.log(`${greeting} ${name}`);
 
-greet2('Hello')('Peter');
+// greet2('Hello')('Peter');
+
+/********************************************************* */
+
+// const lufthansa = {
+//   airline: 'Lufthansa',
+//   iataCode: 'LH',
+//   bookings: [],
+//   book(flightNum, name) {
+//     console.log(
+//       `${name} booked a seat on ${this.airline} flight ${this.iataCode}${flightNum}`
+//     );
+//     this.bookings.push({ flight: `${this.iataCode}${flightNum}`, name });
+//   },
+// };
+
+// lufthansa.book(239, 'Riyaz');
+// // console.log(lufthansa.bookings);
+
+// const eurowings = {
+//   airline: 'Eurowings',
+//   iataCode: 'EW',
+//   bookings: [],
+// };
+
+// const book = lufthansa.book;
+
+// // book(23, 'R2'); //error
+
+// // Call Method
+// book.call(eurowings, 23, 'R2');
+// console.log(eurowings);
+
+// book.call(lufthansa, 45, 'Joe Root');
+
+// const swiss = {
+//   airline: 'Swiss Air Lines',
+//   iataCode: 'LX',
+//   bookings: [],
+// };
+
+// book.call(swiss, 583, 'Peter Parker');
+// console.log(swiss);
+// //Apply Method
+
+// const flightData = [590, 'George Cooper'];
+// book.apply(swiss, flightData);
+// console.log(swiss);
+
+// book.call(swiss, ...flightData);
+
+/********************************************************* */
+
+// // Bind Method
+
+// const bookEW = book.bind(eurowings, 23);
+// bookEW(77, 'Siraj');
+
+// //with Event listner
+// lufthansa.planes = 300;
+// lufthansa.buyplane = function () {
+//   console.log(this);
+
+//   this.planes++;
+//   console.log(this.planes);
+// };
+
+// document
+//   .querySelector('.buy')
+//   .addEventListener('click', lufthansa.buyplane.bind(lufthansa));
+
+// // Partial Application
+// const addTax = (rate, value) => value + value * rate;
+// console.log(addTax(0.1, 200));
+
+// const addVAT = addTax.bind(null, 0.23);
+// // addVAT = value => value + value * 0.23;
+
+// console.log(addVAT(100));
+// console.log(addVAT(23));
+
+// const addTaxRate = function (rate) {
+//   return function (value) {
+//     return value + value * rate;
+//   };
+// };
+
+// const addVAT2 = addTaxRate(0.23);
+// console.log(addVAT2(100));
+// console.log(addVAT2(23));
