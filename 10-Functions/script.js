@@ -238,6 +238,24 @@ console.log(addVAT2(100));
 console.log(addVAT2(23));
 
 */
+
+/* ***************************** Immediately Invoked Function Expressions (IIFE) ***************************** */
+
+const runOnce = function () {
+  console.log(
+    'This will run again and again  when we call 😂 IDK what write here so i did it '
+  );
+};
+runOnce();
+
+// IIFE
+(function () {
+  console.log('This will never run again');
+})();
+
+// IIFE using Arrow Function
+
+(() => console.log('arrow function:- This will also never run again'))();
 /******************* The Belove Code is just practice ********************** Re-Practiced for Better Understanding **************************************************************************** */
 
 // const bookings = [];
