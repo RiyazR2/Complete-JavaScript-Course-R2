@@ -240,7 +240,7 @@ console.log(addVAT2(23));
 */
 
 /* ***************************** Immediately Invoked Function Expressions (IIFE) ***************************** */
-
+/*
 const runOnce = function () {
   console.log(
     'This will run again and again  when we call 😂 IDK what write here so i did it '
@@ -256,6 +256,67 @@ runOnce();
 // IIFE using Arrow Function
 
 (() => console.log('arrow function:- This will also never run again'))();
+
+*/
+
+/* ***************************** Closure ***************************** */
+console.log(`Closure`);
+
+const secureBooking = function () {
+  let passengerCount = 0;
+  return function () {
+    passengerCount++;
+    console.log(`${passengerCount} Passengers`);
+  };
+};
+
+const booker = secureBooking();
+booker();
+booker();
+booker();
+
+console.dir(booker);
+console.log('******************************************************');
+
+// More Closure Examples
+// 1
+let first;
+const main = function () {
+  const value1 = 10;
+  first = function () {
+    console.log(value1 * 2);
+  };
+};
+
+const second = function () {
+  const value2 = 20;
+  first = function () {
+    console.log(value2 * 2);
+  };
+};
+
+main(); // value of value1 and first function assigned
+first(); // first displayed
+console.dir(first);
+// Re-Assigning First Function
+second();
+first();
+console.dir(first);
+
+// Example 2
+const boardPassengers = function (n, wait) {
+  const perGroup = n / 3;
+
+  setTimeout(function () {
+    console.log(`We are now boarding all ${n} Passengers`);
+    console.log(`There are 3 Group, each with ${perGroup} Passengers`);
+  }, 1000);
+
+  console.log(`Will start boarding in ${wait} Seconds`);
+};
+const perGroup = 1000;
+boardPassengers(180, 3);
+
 /******************* The Belove Code is just practice ********************** Re-Practiced for Better Understanding **************************************************************************** */
 
 // const bookings = [];
