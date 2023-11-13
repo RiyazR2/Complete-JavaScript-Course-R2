@@ -288,18 +288,19 @@ const main = function () {
   };
 };
 
-const second = function () {
+const main2 = function () {
   const value2 = 20;
   first = function () {
     console.log(value2 * 2);
   };
 };
 
-main(); // value of value1 and first function assigned
-first(); // first displayed
+main();
+first();
 console.dir(first);
+
 // Re-Assigning First Function
-second();
+main2();
 first();
 console.dir(first);
 
