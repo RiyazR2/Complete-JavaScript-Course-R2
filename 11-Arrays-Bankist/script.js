@@ -71,12 +71,12 @@ const currencies = new Map([
   ["GBP", "Pound sterling"],
 ]);
 
-const movements = [200, 450, -400, 3000, -650, -130, 70, 1300];
+// const movements = [200, 450, -400, 3000, -650, -130, 70, 1300];
 
 /////////////////////////////////////////////////
 
 /****************************** Simple Array Methods ******************************/
-
+/*
 let arr = ["a", "b", "c", "d", "e"];
 
 // SLICE
@@ -118,3 +118,64 @@ console.log(...arr, ...arr2); // a b c d e q r u v x y z
 console.log(letters.join("-"));
 
 // we already know PUSH, UNSHIFT, POP, INDEX OF, and INCLUDES
+
+// at Method also work with STRING
+
+const arr3 = [10, 20, 30];
+console.log(arr3[0]);
+console.log(arr3.at(0));
+
+// Getting Last Array element
+console.log("Getting Last Array element");
+console.log(arr3[arr3.length - 1]);
+console.log(arr3.slice(-1)[0]);
+console.log(arr3.at(-1));
+
+// Second last element
+console.log(arr3.at(-2));
+
+console.log("Riyaz".at(4)); // z
+console.log("Riyaz".at(-2)); // a
+
+*/
+/****************************** forEach Loop ******************************/
+// break and Continue is not work in ForEach Loop
+
+const movements = [200, 450, -400, 3000, -650, -130, 70, 1300];
+
+console.log("--------- for-of Loop -----------");
+for (const movement of movements) {
+  if (movement > 0) {
+    console.log(`You Deposited ${movement}`);
+  } else {
+    console.log(`You Withdraw ${Math.abs(movement)}`);
+  }
+}
+
+console.log("--------- forEach Loop -----------");
+movements.forEach(function (movement) {
+  if (movement > 0) {
+    console.log(`You Deposited ${movement}`);
+  } else {
+    console.log(`You Withdraw ${Math.abs(movement)}`);
+  }
+});
+
+console.log("--------- for-of Loop with entries -----------");
+
+for (const [i, movement] of movements.entries()) {
+  if (movement > 0) {
+    console.log(`Movement ${i + 1}: You Deposited ${movement}`);
+  } else {
+    console.log(`Movement ${i + 1}: You Withdraw ${Math.abs(movement)}`);
+  }
+}
+
+console.log("--------- forEach Loop with index and array -----------");
+movements.forEach(function (mov, i, arr) {
+  if (mov > 0) {
+    console.log(`Movement ${i + 1}: You Deposited ${mov}`);
+  } else {
+    console.log(`Movement ${i + 1}: You Withdraw ${Math.abs(mov)}`);
+  }
+});
