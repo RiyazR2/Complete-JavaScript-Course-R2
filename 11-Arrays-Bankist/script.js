@@ -65,16 +65,14 @@ const inputClosePin = document.querySelector('.form__input--pin');
 /////////////////////////////////////////////////
 // LECTURES
 
-const currencies = new Map([
-  ['USD', 'United States dollar'],
-  ['EUR', 'Euro'],
-  ['GBP', 'Pound sterling'],
-]);
+// const currencies = new Map([
+//   ['USD', 'United States dollar'],
+//   ['EUR', 'Euro'],
+//   ['GBP', 'Pound sterling'],
+// ]);
 
 const movements = [200, 450, -400, 3000, -650, -130, 70, 1300];
 /////////////////////////////////////////////////
-
-/****************************** PROJECT: "Bankist" App ******************************/
 
 /****************************** Simple Array Methods ******************************/
 /*
@@ -205,4 +203,98 @@ currenciesUnique.forEach(function (value, key, map) {
 });
 
 console.log(`***********************************************************`);
+
 */
+
+/********************************************************************************************************** */
+
+/****************************** PROJECT: "Bankist" App ******************************/
+const displayMovements = function (movements) {
+  containerMovements.innerHTML = '';
+  movements.forEach(function (mov, i) {
+    const type = mov > 0 ? 'deposit' : 'withdrawal';
+
+    const html = `
+      <div class="movements__row">
+        <div class="movements__type movements__type--${type}">${
+      i + 1
+    } ${type}</div>
+      <div class="movements__value">${mov}</div>
+    </div>
+  `;
+
+    containerMovements.insertAdjacentHTML('afterbegin', html);
+  });
+};
+displayMovements(account1.movements);
+
+/****************************** Computing Usernames ******************************/
+
+///#4
+
+const createUserNames = function (accs) {
+  accs.forEach(function (acc) {
+    acc.username = acc.owner
+      .toLowerCase()
+      .split(' ')
+      .map(name => name[0])
+      .join('');
+  });
+};
+createUserNames(accounts);
+console.log(accounts);
+
+/*
+///#1
+const user = 'Riyaz Jabbar Pathan'; // RJP
+const Username = user
+  .toLowerCase()
+  .split(' ')
+
+  ///#3
+  .map(name => name[0]) /// same as belove, here used arrow function
+
+  ///#2
+  // .map(function (name) {
+  //   return name[0];
+  // })
+  .join('');
+console.log(Username);
+*/
+
+/****************************** the MAP Method ******************************/
+
+const eurToUsd = 1.1;
+
+const movementsUSD = movements.map(function (mov) {
+  return mov * eurToUsd;
+});
+
+/// Using Arrow Function
+// const movementsUSD = movements.map(move => {  move * eurToUsd});
+
+console.log(movements);
+console.log(movementsUSD);
+
+// same using for of loop
+
+const movementsUSDfor = [];
+for (const mov of movements) {
+  movementsUSDfor.push(mov * eurToUsd);
+}
+console.log(movementsUSDfor);
+
+const movementsDescriptions = movements.map(
+  (mov, i) =>
+    `Movement ${i + 1}: You ${mov > 0 ? 'deposited' : 'withdrew'} ${Math.abs(
+      mov
+    )}`
+
+  /// this is same as above
+  // if (mov > 0) {
+  //   console.log(`Movement ${i + 1}: You Deposited ${mov}`);
+  // } else {
+  //   console.log(`Movement ${i + 1}: You Withdraw ${Math.abs(mov)}`);
+  // }
+);
+console.log(movementsDescriptions);
