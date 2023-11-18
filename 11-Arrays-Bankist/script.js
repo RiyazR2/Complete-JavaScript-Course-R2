@@ -228,6 +228,12 @@ const displayMovements = function (movements) {
 };
 displayMovements(account1.movements);
 
+/// #4 from the REDUCE Method Lecture
+const calDisplayBalance = function (movements) {
+  const balance = movements.reduce((acc, mov) => acc + mov, 0);
+  labelBalance.textContent = `${balance} €`;
+};
+calDisplayBalance(account1.movements);
 /****************************** Computing Usernames ******************************/
 
 ///#4
@@ -242,7 +248,7 @@ const createUserNames = function (accs) {
   });
 };
 createUserNames(accounts);
-console.log(accounts);
+// console.log(accounts);
 
 /*
 ///#1
@@ -318,3 +324,29 @@ const withdrawals = movements.filter(mov => mov < 0);
 console.log(withdrawals);
 
 /****************************** the Reduce Method ******************************/
+
+console.log(movements);
+
+/// #1
+// //Accumulator -> its just like SNOWBALL
+// const balance = movements.reduce(function (acc, cur, i, arr) {
+//   console.log(`Iteration ${i}: ${acc}`);
+//   return acc + cur;
+// }, 0);
+// console.log(balance);
+
+/// #3
+const balance = movements.reduce((acc, cur) => acc + cur, 0);
+console.log(balance);
+
+/// #2 for-of loop
+// let balance2 = 0;
+// for (const mov of movements) balance2 += mov;
+// console.log(balance2);
+
+/// #5 Maximum Value
+const max = movements.reduce((acc, mov) => {
+  if (acc > mov) return acc;
+  else return mov;
+}, movements[0]);
+console.log(max);
