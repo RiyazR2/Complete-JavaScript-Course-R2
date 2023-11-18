@@ -246,7 +246,7 @@ console.log(accounts);
 
 /*
 ///#1
-const user = 'Riyaz Jabbar Pathan'; // RJP
+const user = 'Steven Thomas Williams'; // stw
 const Username = user
   .toLowerCase()
   .split(' ')
@@ -298,3 +298,23 @@ const movementsDescriptions = movements.map(
   // }
 );
 console.log(movementsDescriptions);
+
+/****************************** the Filter Method ******************************/
+
+const deposits = movements.filter(function (mov) {
+  return mov > 0;
+});
+console.log(movements);
+console.log(deposits);
+
+const depositsFor = [];
+
+/// same as above
+// for (const mov of movements) if (mov > 0) depositsFor.push(mov);
+
+// console.log(depositsFor);
+
+const withdrawals = movements.filter(mov => mov < 0);
+console.log(withdrawals);
+
+/****************************** the Reduce Method ******************************/
