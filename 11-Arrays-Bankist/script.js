@@ -219,7 +219,7 @@ const displayMovements = function (movements) {
         <div class="movements__type movements__type--${type}">${
       i + 1
     } ${type}</div>
-      <div class="movements__value">${mov}</div>
+      <div class="movements__value">${mov}€</div>
     </div>
   `;
 
@@ -228,12 +228,38 @@ const displayMovements = function (movements) {
 };
 displayMovements(account1.movements);
 
-/// #4 from the REDUCE Method Lecture
+/// #4 from the Lecture of 'REDUCE Method'
 const calDisplayBalance = function (movements) {
   const balance = movements.reduce((acc, mov) => acc + mov, 0);
-  labelBalance.textContent = `${balance} €`;
+  labelBalance.textContent = `${balance}€`;
 };
 calDisplayBalance(account1.movements);
+
+/// #2 From the Lecture of 'The Magic of Chaining Methods'
+const calDisplaySummary = function (movements) {
+  const incomes = movements
+    .filter(mov => mov > 0)
+    .reduce((acc, mov) => acc + mov, 0);
+  labelSumIn.textContent = `${incomes}€`;
+
+  const out = movements
+    .filter(mov => mov < 0)
+    .reduce((acc, mov) => acc + mov, 0);
+  labelSumOut.textContent = `${Math.abs(out)}€`; // 'Math.abs' is used here to remove - sign
+
+  const intrest = movements
+    .filter(mov => mov > 0)
+    .map(deposit => (deposit * 1.2) / 100)
+    .filter((int, i, arr) => {
+      console.log(arr);
+      return int >= 1;
+    })
+    .reduce((acc, int) => acc + int, 0);
+  labelSumInterest.textContent = `${intrest}`;
+};
+
+calDisplaySummary(account1.movements);
+
 /****************************** Computing Usernames ******************************/
 
 ///#4
@@ -350,3 +376,18 @@ const max = movements.reduce((acc, mov) => {
   else return mov;
 }, movements[0]);
 console.log(max);
+
+/****************************** The Magic of Chaining Methods ******************************/
+
+/// #1
+///PIPELINE
+// eurToUsd = 1.1;
+const totalDepositsUSD = movements
+  .filter(mov => mov > 0)
+  // .map(mov => mov * eurToUsd)
+  .map((mov, i, arr) => {
+    // console.log(arr);
+    return mov * eurToUsd;
+  })
+  .reduce((acc, mov) => acc + mov, 0);
+console.log(totalDepositsUSD);
