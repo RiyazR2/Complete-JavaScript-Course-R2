@@ -380,6 +380,26 @@ btnTransfer.addEventListener('click', function (e) {
   updateUI(currentAccount);
 });
 
+/******************************  The some and every method ******************************/
+
+/// Bank Rule:- Only grants loan if there is at least one deposit to hit it with at least 10% of the requested loan amount
+btnLoan.addEventListener('click', function (e) {
+  e.preventDefault();
+
+  const amount = Number(inputLoanAmount.value);
+
+  if (amount > 0 && currentAccount.movements.some(mov => mov >= amount * 0.1)) {
+    /// or amount / 10
+
+    /// Add Movement
+    currentAccount.movements.push(amount);
+
+    // Update UI
+    updateUI(currentAccount);
+  }
+  inputLoanAmount.value = '';
+});
+
 /******************************  The findIndex Method ******************************/
 btnClose.addEventListener('click', function (e) {
   e.preventDefault();
@@ -514,4 +534,26 @@ for (const acc of accounts) {
   if (acc.owner === 'Jessica Davis') console.log(acc);
 }
 
-/****************************** Implementing Login ******************************/
+/******************************  The some and every method ******************************/
+
+console.log(movements);
+
+// EQUALITY
+console.log(movements.includes(-130));
+
+// SOME: CONDITION
+console.log(movements.some(mov => mov === -130));
+
+const anyDeposits = movements.some(mov => mov > 0);
+console.log(anyDeposits);
+
+// EVERY : need to satisfy all condition then it return true otherwise it will be false
+
+console.log(movements.every(mov => mov > 0)); // false
+console.log(account4.movements.every(mov => mov > 0)); // true
+
+// Separate Callback function
+const deposit = mov => mov > 0;
+console.log(movements.some(deposit));
+console.log(movements.every(deposit));
+console.log(movements.filter(deposit));
