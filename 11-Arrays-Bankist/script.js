@@ -226,30 +226,35 @@ const displayMovements = function (movements) {
     containerMovements.insertAdjacentHTML('afterbegin', html);
   });
 };
-displayMovements(account1.movements);
+
+//// this is comment down after lecture of 'Implementing Login'
+// displayMovements(account1.movements);
 
 /// #4 from the Lecture of 'REDUCE Method'
 const calDisplayBalance = function (movements) {
   const balance = movements.reduce((acc, mov) => acc + mov, 0);
   labelBalance.textContent = `${balance}€`;
 };
-calDisplayBalance(account1.movements);
+//// this is comment down after lecture of 'Implementing Login'
+// calDisplayBalance(account1.movements);
 
 /// #2 From the Lecture of 'The Magic of Chaining Methods'
-const calDisplaySummary = function (movements) {
-  const incomes = movements
+// const calDisplaySummary = function (movements) {
+/// after the lecture of 'Implemnting Login'
+const calDisplaySummary = function (acc) {
+  const incomes = acc.movements
     .filter(mov => mov > 0)
     .reduce((acc, mov) => acc + mov, 0);
   labelSumIn.textContent = `${incomes}€`;
 
-  const out = movements
+  const out = acc.movements
     .filter(mov => mov < 0)
     .reduce((acc, mov) => acc + mov, 0);
   labelSumOut.textContent = `${Math.abs(out)}€`; // 'Math.abs' is used here to remove - sign
 
-  const intrest = movements
+  const intrest = acc.movements
     .filter(mov => mov > 0)
-    .map(deposit => (deposit * 1.2) / 100)
+    .map(deposit => (deposit * acc.interestRate) / 100)
     .filter((int, i, arr) => {
       console.log(arr);
       return int >= 1;
@@ -258,7 +263,8 @@ const calDisplaySummary = function (movements) {
   labelSumInterest.textContent = `${intrest}`;
 };
 
-calDisplaySummary(account1.movements);
+//// this is comment down after lecture of 'Implementing Login'
+// calDisplaySummary(account1.movements);
 
 /****************************** Computing Usernames ******************************/
 
@@ -293,6 +299,42 @@ const Username = user
   .join('');
 console.log(Username);
 */
+
+/******************************  Implementing Login ******************************/
+/// Event handler
+
+let currentAccount;
+btnLogin.addEventListener('click', function (e) {
+  // Prevent form from submiting
+  e.preventDefault();
+
+  currentAccount = accounts.find(
+    acc => acc.username === inputLoginUsername.value
+  );
+  console.log(currentAccount);
+  if (currentAccount?.pin === Number(inputLoginPin.value)) {
+    /// Display UI and Message
+    labelWelcome.textContent = `Welcome Back, ${
+      currentAccount.owner.split(' ')[0]
+    }`;
+
+    /// Clear input fields
+    inputLoginUsername.value = inputLoginPin.value = '';
+
+    /// user PIN field loses its focus
+    inputLoginPin.blur();
+
+    /// Display Movements
+    displayMovements(currentAccount.movements);
+
+    /// Display Balance
+    calDisplayBalance(currentAccount.movements);
+
+    /// Display Summary
+    calDisplaySummary(currentAccount);
+  }
+  containerApp.style.opacity = 100;
+});
 
 /****************************** the MAP Method ******************************/
 
@@ -406,3 +448,5 @@ console.log(account);
 for (const acc of accounts) {
   if (acc.owner === 'Jessica Davis') console.log(acc);
 }
+
+/****************************** Implementing Login ******************************/
