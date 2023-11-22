@@ -316,7 +316,7 @@ const updateUI = function (acc) {
 };
 
 /******************************  Implementing Login ******************************/
-/// Event handler
+/// Event handlers
 
 let currentAccount;
 btnLogin.addEventListener('click', function (e) {
@@ -332,6 +332,7 @@ btnLogin.addEventListener('click', function (e) {
     labelWelcome.textContent = `Welcome Back, ${
       currentAccount.owner.split(' ')[0]
     }`;
+    containerApp.style.opacity = 100;
 
     /// Clear input fields
     inputLoginUsername.value = inputLoginPin.value = '';
@@ -352,9 +353,7 @@ btnLogin.addEventListener('click', function (e) {
     //Update UI
     updateUI(currentAccount);
   }
-  containerApp.style.opacity = 100;
 });
-containerApp.style.opacity = 100;
 
 /****************************** Implementing Transfer  ******************************/
 
@@ -379,6 +378,27 @@ btnTransfer.addEventListener('click', function (e) {
 
   //Update UI
   updateUI(currentAccount);
+});
+
+/******************************  The findIndex Method ******************************/
+btnClose.addEventListener('click', function (e) {
+  e.preventDefault();
+
+  if (
+    inputCloseUsername.value === currentAccount.username &&
+    Number(inputClosePin.value) === currentAccount.pin
+  ) {
+    const index = accounts.findIndex(
+      acc => acc.username === currentAccount.username
+    );
+    console.log(index);
+
+    // Delete Account
+    accounts.splice(index, 1);
+    /// Hide UI
+    containerApp.style.opacity = 0;
+  }
+  inputCloseUsername.value = inputClosePin.value = '';
 });
 
 /****************************** the MAP Method ******************************/
