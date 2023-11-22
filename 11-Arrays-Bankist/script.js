@@ -231,8 +231,11 @@ const displayMovements = function (movements) {
 // displayMovements(account1.movements);
 
 /// #4 from the Lecture of 'REDUCE Method'
-const calDisplayBalance = function (movements) {
-  const balance = movements.reduce((acc, mov) => acc + mov, 0);
+// const calDisplayBalance = function (movements) {
+
+/// after lecture "Implementing Transfer"
+const calDisplayBalance = function (acc) {
+  acc.balance = acc.movements.reduce((acc, mov) => acc + mov, 0); //after lecture "Implementing Transfer"
   labelBalance.textContent = `${balance}€`;
 };
 //// this is comment down after lecture of 'Implementing Login'
@@ -300,6 +303,18 @@ const Username = user
 console.log(Username);
 */
 
+/// /// after 'Implementing Transfer' Lecture
+const updateUI = function (acc) {
+  /// Display Movements
+  displayMovements(acc.movements);
+
+  /// Display Balance
+  calDisplayBalance(acc);
+
+  /// Display Summary
+  calDisplaySummary(acc);
+};
+
 /******************************  Implementing Login ******************************/
 /// Event handler
 
@@ -324,16 +339,46 @@ btnLogin.addEventListener('click', function (e) {
     /// user PIN field loses its focus
     inputLoginPin.blur();
 
-    /// Display Movements
-    displayMovements(currentAccount.movements);
+    /// after 'Implementing Transfer' Lecture
+    // /// Display Movements
+    // displayMovements(currentAccount.movements);
 
-    /// Display Balance
-    calDisplayBalance(currentAccount.movements);
+    // /// Display Balance
+    // calDisplayBalance(currentAccount);
 
-    /// Display Summary
-    calDisplaySummary(currentAccount);
+    // /// Display Summary
+    // calDisplaySummary(currentAccount);
+
+    //Update UI
+    updateUI(currentAccount);
   }
   containerApp.style.opacity = 100;
+});
+containerApp.style.opacity = 100;
+
+/****************************** Implementing Transfer  ******************************/
+
+btnTransfer.addEventListener('click', function (e) {
+  e.preventDefault();
+  const amount = Number(inputTransferAmount.value);
+  const receiverAcc = accounts.find(
+    acc => acc.username === inputTransferTo.value
+  );
+
+  inputTransferAmount.value = inputTransferTo.value = '';
+
+  if (
+    amount > 0 &&
+    receiverAcc &&
+    currentAccount.balance >= amount &&
+    receiverAcc?.username !== currentAccount.username
+  )
+    /// Doing the transfer
+    currentAccount.movements.push(-amount);
+  receiverAcc.movements.push(amount);
+
+  //Update UI
+  updateUI(currentAccount);
 });
 
 /****************************** the MAP Method ******************************/
