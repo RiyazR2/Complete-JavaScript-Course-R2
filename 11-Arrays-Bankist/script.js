@@ -209,9 +209,17 @@ console.log(`***********************************************************`);
 /********************************************************************************************************** */
 
 /****************************** PROJECT: "Bankist" App ******************************/
-const displayMovements = function (movements) {
+// const displayMovements = function (movements) {
+/// after lecture 'sorting arrays'
+/// #2
+const displayMovements = function (movements, sort = false) {
   containerMovements.innerHTML = '';
-  movements.forEach(function (mov, i) {
+
+  const movs = sort ? movements.slice().sort((a, b) => a - b) : movements;
+
+  // movements.forEach(function (mov, i) {
+  ///after lecture 'sorting arrays'
+  movs.forEach(function (mov, i) {
     const type = mov > 0 ? 'deposit' : 'withdrawal';
 
     const html = `
@@ -421,6 +429,13 @@ btnClose.addEventListener('click', function (e) {
   inputCloseUsername.value = inputClosePin.value = '';
 });
 
+/// #3 after lecture Sorting array
+let sorted = false;
+btnSort.addEventListener('click', function (e) {
+  e.preventDefault();
+  displayMovements(currentAccount.movements, !sorted);
+  sorted = !sorted;
+});
 /****************************** the MAP Method ******************************/
 
 const eurToUsd = 1.1;
@@ -589,3 +604,37 @@ const overalBalance2 = accounts
   .flatMap(acc => acc.movements) // in flatMap method we can't go to deep only 1 level deep
   .reduce((acc, mov) => acc + mov, 0);
 console.log(overalBalance2);
+
+/******************************  Sorting array method ******************************/
+/// #1
+/// Strings
+const owners = ['Jonas', 'Zach', 'Adam', 'Martha'];
+console.log(owners.sort()); // this actully muted the original array
+console.log(owners);
+
+/// Numbers
+console.log(movements);
+console.log(movements.sort()); //sort method does the sorting based on strings, it convert everything to strings and then it does sorting
+
+/// return < 0, A, B (keep as it is)
+/// return > 0, B, A (switch order)
+
+/// Ascending
+movements.sort((a, b) => {
+  if (a > b) return 1;
+  if (b > a) return -1;
+});
+console.log(movements);
+
+movements.sort((a, b) => a - b); // if a>b then 'a' is a posisitive number, so here then return positive number, it doesn't need to be exactly 1 just something greater than 0 and same for Descending
+console.log(movements);
+
+/// Decending
+movements.sort((a, b) => {
+  if (a > b) return -1;
+  if (b > a) return 1;
+});
+console.log(movements);
+
+movements.sort((a, b) => b - a);
+console.log(movements);
